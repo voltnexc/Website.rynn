@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Saya</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'BigelowRules-Regular', sans-serif;
+      background-color: #fefefe;
+      color: #333;
+      scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background: url('fotosaya.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    header .hero-text {
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 10;
+    }
+
+    .toggle-theme {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .about img {
+      width: 150px;
+      border-radius: 50%;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .portfolio {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    input, textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    button {
+      background-color: #000;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .social-icons a img {
+      width: 35px;
+      filter: grayscale(1);
+      transition: filter 0.3s;
+    }
+
+    .social-icons a:hover img {
+      filter: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #111;
+      color: white;
+    }
+
+    /* Dark Mode */
+    body.dark {
+      background-color: #121612;
+      color: #eee;
+    }
+
+    body.dark .card {
+      background-color: #1e1e1e;
+    }
+
+    body.dark input,
+    body.dark textarea {
+      background-color: #2a2a2a;
+      color: grey;
+      border: none;
+    }
+
+    body.dark button,
+    body.dark .toggle-theme {
+      background-color: #eee;
+      color: black;
+    }
+    .social-icons a {
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+/* Tambahkan di CSS */
+.portfolio img {
+  transition: transform 0.5s;
+}
+.portfolio img:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+.card {
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+.card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 20px 20px 40px rgba(0,0,0,0.3);
+}
+.card {
+  background: rgba(255, 255, 255, 0.2); /* Efek kaca buram */
+  backdrop-filter: blur(10px); /* Blur background di belakangnya */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px); /* Efek mengambang */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45aaf2);
+  -webkit-background-clip: text; /* Warna gradien hanya di teks */
+  color: transparent;
+  animation: gradienAnimasi 8s ease infinite;
+}
+@keyframes gradienAnimasi {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.social-icons a {
+  background: #f0f0f0;
+  box-shadow:  5px 5px 10px #d9d9d9,
+              -5px -5px 10px #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.social-icons a:hover {
+  box-shadow: inset 2px 2px 5px #d9d9d9,
+              inset -2px -2px 5px #ffffff;
+}
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background: currentColor;
+  transition: width 0.3s;
+}
+nav a:hover::after {
+  width: 100%;
+}
+.about img {
+  transition: transform 0.5s ease-in-out;
+}
+.about img:hover {
+  transform: scale(1.1);
+}
+body.dark {
+  background-color: #121212;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+body.dark .card {
+  background-color: #1c1c1c;
+  border-color: #333;
+}
+
+body.dark button, body.dark .toggle-theme {
+  background-color: #444;
+  color: #fff;
+}
+
+.toggle-theme {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+  </style>
+</head>
+<body>
+  
+  
+  
+  <div id="progress-bar"></div>
+<style>
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: #ff6b6b;
+  width: 0%;
+  z-index: 1000;
+}
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  document.getElementById('progress-bar').style.width = scrollPercent + '%';
+});
+</script>
+
+  <div id="preloader">
+  <div class="spinner"></div>
+</div>
+
+<style>
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #ff686b;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+<script>
+window.addEventListener('load', function(){
+  document.getElementById('preloader').style.display = 'none';
+});
+</script>
+
+  <nav>
+    <button class="toggle-theme" onclick="toggleTheme()">Mode G/T</button>
+  </nav>
+
+  <header>
+    <div class="hero-text">
+      <h1>Selamat Datang</h1>
+      <p>Photograper | Suka Mengambar | Coding</p>
+    </div>
+  </header>
+
+<!-- Hero Section -->
+<div style="text-align:center; padding:50px;">
+  <img src="royan.png" alt="Foto Profil" style="border-radius:50%; width:150px; height:150px;">
+  <h1> Hai, Nama Saya Royan. </h1>
+  <p>| Web Developer | Freelancer |
+  saya seorang yang masih sekolah dan ingin melihatkan profil saya agar terlihat bagus, aku mempunyai hobi tentang fotografi, megedit, coding, megambar dll. </p>
+</div>
+
+<!-- About Me -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Tentang Saya</h2>
+  <p style="font-size:18px;">
+    Saya adalah seorang yang saat ini sedang mengembangkan diri agar bisa sukses di umur muda, karena itu termasuk tujuan saya agar tercapai. Semoga teman-teman yang membaca ini mendoakan saya yang terbaik.
+  </p>
+</div>
+
+  <section class="career">
+  <h2>📚 Pendidikan & Karir</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>2025 - Sekarang di</h3>
+      <p><strong>Man 2 Kendal</strong> - Jurusan Multimedia</p>
+    </div>
+    <div class="timeline-item">
+      <h3>2021</h3>
+      <p><strong>Kursus Fotografi</strong> - Lembaga Seni Visual</p>
+    </div>
+  </div>
+</section>
+
+<!-- tentang pegalaman yang dimiliki  -->
+<div style="max-width:800px; margin:50px auto;">
+  <h2>Pengalaman</h2>
+  <ul style="list-style:none; padding:0;">
+    <li style="margin-bottom:20px;">
+      <h3>2022 - Sekarang</h3>
+      <p>Senior Web Developer di PT. Kreatif Digital</p>
+    </li>
+    <li style="margin-bottom:20px;">
+      <h3>2020 - 2022</h3>
+      <p>Frontend Developer di StartUp Tech</p>
+    </li>
+    <li style="margin-bottom:20px;">
+      <h3>2018 - 2020</h3>
+      <p>Freelancer Web Designer</p>
+    </li>
+  </ul>
+</div>
+
+<!-- Fun Facts -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Fun Facts</h2>
+  <ul style="list-style:none; padding:0; font-size:18px;">
+    <li>✓ Pernah mendaki 5 gunung di Indonesia</li>
+    <li>✓ Bisa memainkan 3 alat musik</li>
+    <li>✓ Suka menulis puisi dan blog</li>
+  </ul>
+</div>
+
+<!-- Quote of The Day -->
+<div style="max-width:600px; margin:50px auto; padding:20px; background:#bbb; border-radius:10px; text-align:center;">
+  <h2>Quote of The Day</h2>
+  <blockquote style="font-size:20px; font-style:italic;">
+    "The only limit to our realization of tomorrow will be our doubts of today." - Franklin D. Roosevelt
+  </blockquote>
+</div>
+
+<!-- Counter -->
+<div style="display:flex; justify-content:center; gap:50px; margin:50px 0; text-align:center;">
+  <div>
+    <h1>50+</h1>
+    <p>Project Selesai</p>
+  </div>
+  <div>
+    <h1>20+</h1>
+    <p>Client Puas</p>
+  </div>
+  <div>
+    <h1>5 Tahun</h1>
+    <p>Pengalaman</p>
+  </div>
+</div>
+
+<!-- Awards Section -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Awards & Certifications</h2>
+  <ul style="list-style:none; padding:0; font-size:18px;">
+    <li>🏆 Best Developer Award 2023 - TechID</li>
+    <li>🎖️ Google Certified Digital Marketer</li>
+    <li>🏅 1st Place Hackathon Indonesia 2022</li>
+  </ul>
+</div>
+
+<!-- Timeline -->
+<div style="max-width:800px; margin:50px auto;">
+  <h2 style="text-align:center;">My Journey</h2>
+  <div style="border-left:2px solid #ccc; padding-left:20px; margin-top:30px;">
+
+    <div style="margin-bottom:20px;">
+      <h3>2020</h3>
+      <p>Graduated from University of ABC</p>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <h3>2021</h3>
+      <p>Started as Front-End Developer at XYZ Company</p>
+    </div>
+
+    <div style="margin-bottom:20px;">
+      <h3>2023</h3>
+      <p>Freelance Web Developer & Consultant</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Languages -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Languages</h2>
+  <p>Indonesian (Native)</p>
+  <p>English (Professional)</p>
+  <p>Japanese (Basic)</p>
+</div>
+
+<!-- Hobbies -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Interests & Hobbies</h2>
+  <p>Photography | Traveling | Reading | Gaming | Hiking</p>
+</div>
+
+<!-- Skill Badges -->
+<div style="text-align:center; margin:50px;">
+  <h2>My Skills</h2>
+  <span style="background:#e0e0e0; padding:8px 16px; margin:5px; border-radius:30px;">HTML</span>
+  <span style="background:#e0e0e0; padding:8px 16px; margin:5px; border-radius:30px;">CSS</span>
+  <span style="background:#e0e0e0; padding:8px 16px; margin:5px; border-radius:30px;">JavaScript</span>
+  <span style="background:#e0e0e0; padding:8px 16px; margin:5px; border-radius:30px;">React</span>
+</div>
+
+<!-- Mission Statement -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>My Mission</h2>
+  <p style="font-size:18px; font-style:italic;">"Empowering businesses and individuals through innovative digital solutions and continuous growth."</p>
+</div>
+
+<!-- Values and Principles -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>My Core Values/Perinsip</h2>
+  <ul style="list-style:none; padding:0; font-size:18px;">
+    <li>✔ Integrity above all else</li>
+    <li>✔ Lifelong learning and curiosity</li>
+    <li>✔ Empathy in communication</li>
+    <li>✔ Commitment to excellence</li>
+  </ul>
+</div>
+
+<!-- Favorite Books and Movies -->
+<div style="max-width:800px; margin:50px auto; text-align:center;">
+  <h2>Favorites</h2>
+  <h4>Books:</h4>
+  <p>"Atomic Habits" by James Clear, "The Lean Startup" by Eric Ries</p>
+  <h4>Movies:</h4>
+  <p>Inception, The Pursuit of Happyness, Interstellar</p>
+</div>
+
+
+
+<!-- Portfolio Gallery -->
+<div style="max-width:1000px; margin:50px auto; text-align:center;">
+  <h2>Portofolio Gallery</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:20px;">
+    <img src="galeri.jpg" alt="Project 1" style="width:200px; border-radius:8px;">
+    <img src="pantai.jpg" alt="Project 2" style="width:200px; border-radius:8px;">
+    <img src="kucing.jpg" alt="Project 3" style="width:200px; border-radius:8px;">
+  </div>
+</div>
+
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(110, 69, 226, 0.2);
+  }
+</style>
+
+<style>
+  .timeline {
+    border-left: 2px solid #6e45e2;
+    padding-left: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+  }
+  .timeline-item {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    background: #6e45e2;
+    border-radius: 50%;
+  }
+</style>
+
+  <section>
+    <h2>Portofolio text</h2>
+    <div class="portfolio">
+      <div class="card">
+        <h3>Proyek 1</h3>
+        <p>Kampanye brand fashion 2024</p>
+      </div>
+      <div class="card">
+        <h3>Proyek 2</h3>
+        <p>Kolaborasi dengan YouTuber XYZ</p>
+      </div>
+      <div class="card">
+        <h3>Proyek 3</h3>
+        <p>Podcast & Talkshow mingguan</p>
+      </div>
+    </div>
+  </section>
+  <section class="skills">
+  <h2>🛠️ Keahlian</h2>
+  <div class="skill-bar">
+    <label>Fotografi</label>
+    <div class="bar-container">
+      <div class="bar" style="width: 80%; background: #6e45e2;"></div>
+    </div>
+  </div>
+  <div class="skill-bar">
+    <label>Editing Foto</label>
+    <div class="bar-container">
+      <div class="bar" style="width: 75%; background: #88d3ce;"></div>
+    </div>
+    </div>
+  <div class="skill-bar">
+    <label>Mengambar</label>
+    <div class="bar-container">
+      <div class="bar" style="width: 90%; background: #88d3ce;"></div>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <h2>💬 Testimoni</h2>
+  <div class="testimonial-slider">
+    <div class="testimonial active">
+      <p>"Karya fotonya sangat memukau!"</p>
+      <h4>- Client A</h4>
+    </div>
+    <div class="testimonial">
+      <p>"Profesional dan hasilnya melebihi ekspektasi."</p>
+      <h4>- Client B</h4>
+    </div>
+  </div>
+</section>
+<section class="testimonials">
+  <div class="testimonial">
+    <p>"Karya fotonya sangat memukau! 📸✨"</p>
+    <h4>- Client A</h4>
+  </div>
+  <div class="testimonial">
+    <p>"Profesional dan hasilnya melebihi ekspektasi. 🌟"</p>
+    <h4>- Client B</h4>
+  </div>
+</section>
+
+
+<style>
+  .testimonial-slider {
+    position: relative;
+    max-width: 600px;
+    margin: 30px auto;
+  }
+  .testimonial {
+    display: none;
+    text-align: center;
+    padding: 20px;
+  }
+  .testimonial.active {
+    display: block;
+    animation: fadeIn 1s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+</style>
+
+<script>
+  let currentTestimonial = 0;
+  const testimonials = document.querySelectorAll('.testimonial');
+  
+  function showTestimonial() {
+    testimonials.forEach(t => t.classList.remove('active'));
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    testimonials[currentTestimonial].classList.add('active');
+    setTimeout(showTestimonial, 3000);
+  }
+  setTimeout(showTestimonial, 3000);
+</script>
+
+<style>
+  .skill-bar {
+    margin: 15px 0;
+  }
+  .bar-container {
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  .bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+</style>
+  <section>
+    <h2>Hubungi Saya</h2>
+    <form class="contact-form" action="https://formsubmit.co/royangaming22@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Nama Anda" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <textarea name="message" placeholder="Pesan" required></textarea>
+  <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+  <!-- Optional: anti spam -->
+  <input type="hidden" name="_captcha" value="false">
+  
+  <button type="submit">Kirim</button>
+</form>
+    <div class="social-icons">
+  <a href="https://vm.tiktok.com/ZSr4XoPnY/" target="_blank"><img src="Instragram.png" alt="Instagram"></a>
+  <a href="https://vm.tiktok.com/ZSr4XoPnY/" target="_blank"><img src="tiktok.png" alt="TikTok"></a>
+  <a href="https://youtube.com/@royangaming3160?si=8Wr4lZEO9mw2HiAB" target="_blank"><img src="youtube.png" alt="YouTube"></a>
+</div>
+  </section>
+  <section class="faq">
+  <h2>❓ Pertanyaan Umum</h2>
+  <div class="faq-item">
+    <button class="faq-question">Berapa tarif jasa fotografi?</button>
+    <div class="faq-answer">
+      <p>Tarif bervariasi tergantung jenis proyek. Silakan hubungi saya untuk detailnya.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question">Apakah menerima proyek luar kota?</button>
+    <div class="faq-answer">
+      <p>Ya, dengan ketentuan tambahan biaya transportasi dan akomodasi.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<div style="text-align: center; margin: 20px 0;">
+  <h2>Kode Diskon 😊</h2>
+  <div style="display: inline-block;">
+    <input type="text" value="ZEROX677" id="copyText" style="padding: 10px; font-size: 18px;">
+    <button onclick="copyCode()" style="padding: 10px; font-size: 18px; background-color: black; color: white;">Copy Kode</button>
+  </div>
+</div>
+
+<script>
+function copyCode() {
+  const copyText = document.getElementById('copyText');
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // Support mobile
+  document.execCommand('copy');
+  alert('Kode berhasil disalin!');
+}
+</script>
+
+<section class="contact-advanced">
+  <h2>📨 Kontak Saya</h2>
+  <div class="contact-grid">
+    <!-- Email -->
+    <div class="contact-card" onclick="location.href='mailto:royangaming22@gmail.com'">
+      <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="40" alt="Email">
+      <h3>Email</h3>
+      <p>royangaming22@gmail.com</p>
+    </div>
+    
+    <!-- WhatsApp -->
+    <div class="contact-card" onclick="location.href='https://wa.me/6289673185360'">
+      <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" width="40" alt="WhatsApp">
+      <h3>WhatsApp</h3>
+      <p>+62 896-731-85360</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item {
+    margin-bottom: 10px;
+    max-width: 600px;
+    margin: 0 auto 15px;
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .faq-answer {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .faq-answer.show {
+    max-height: 200px;
+    padding: 15px;
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const answer = button.nextElementSibling;
+      answer.classList.toggle('show');
+    });
+  });
+</script>
+
+
+ <footer>
+  <div class="footer-nav">
+    <a href="#about">Tentang</a> |
+    <a href="#portfolio">Portofolio</a> |
+    <a href="#contact">Hubungi Saya</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://instagram.com" target="_blank">Instagram</a> |
+    <a href="https://facebook.com" target="_blank">Facebook</a> |
+    <a href="https://twitter.com" target="_blank">Twitter</a>
+  </div>
+  <p>&copy; 2025 Royan. All rights reserved.</p>
+</footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
+<!-- Scroll to Top Button -->
+<button id="scrollTopBtn" style="
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 99;
+">↑</button>
+
+<!-- Script Tambahan -->
+<script>
+  // Scroll to top button
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollTopBtn.style.display = "block";
+    } else {
+      scrollTopBtn.style.display = "none";
+    }
+  };
+  scrollTopBtn.onclick = function() {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+
+  // Hero typing animation
+  const heroText = document.querySelector('.hero-text p');
+  const words = ["Photographer", "Menggambar", "Coding"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let currentWord = '';
+  let isDeleting = false;
+
+  function type() {
+    if (wordIndex >= words.length) wordIndex = 0;
+    currentWord = words[wordIndex];
+
+    if (isDeleting) {
+      heroText.innerHTML = currentWord.substring(0, charIndex--);
+    } else {
+      heroText.innerHTML = currentWord.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentWord.length) {
+      isDeleting = true;
+      setTimeout(type, 1000);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex++;
+      setTimeout(type, 500);
+    } else {
+      setTimeout(type, isDeleting ? 50 : 150);
+    }
+  }
+  type();
+
+  // Simple notification on form submit
+  const form = document.querySelector('.contact-form');
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Terima kasih sudah menghubungi saya!');
+    form.reset();
+  });
+</script>
+<script>
+  // Animasi scroll halus untuk semua link
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+
+  // Efek parallax untuk header
+  window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const scrollPosition = window.pageYOffset;
+    header.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+  });
+
+  // Animasi ketik untuk teks hero
+  const heroText = document.querySelector('.hero-text h1');
+  const originalText = heroText.textContent;
+  let i = 0;
+  
+  function typeWriter() {
+    if (i < originalText.length) {
+      heroText.textContent = originalText.substring(0, i+1);
+      i++;
+      setTimeout(typeWriter, 107);
+    }
+  }
+  
+  // Mulai animasi setelah halaman dimuat
+  window.addEventListener('load', function() {
+    heroText.textContent = '';
+    setTimeout(typeWriter, 500);
+    
+    // Animasi fade-in untuk section
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      section.style.opacity = '0';
+      section.style.transition = 'opacity 0.5s ease';
+    });
+    
+    const fadeInOnScroll = function() {
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < window.innerHeight - 100) {
+          section.style.opacity = '1';
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', fadeInOnScroll);
+    fadeInOnScroll();
+  });
+
+  // Tooltip untuk ikon sosial media
+  const socialIcons = document.querySelectorAll('.social-icons a');
+  socialIcons.forEach(icon => {
+    const tooltip = document.createElement('span');
+    tooltip.className = 'tooltip';
+    tooltip.textContent = icon.querySelector('img').alt;
+    icon.appendChild(tooltip);
+    
+    icon.addEventListener('mouseover', function() {
+      tooltip.style.visibility = 'visible';
+      tooltip.style.opacity = '1';
+    });
+    
+    icon.addEventListener('mouseout', function() {
+      tooltip.style.visibility = 'hidden';
+      tooltip.style.opacity = '0';
+    });
+  });
+
+  // Validasi form kontak
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const inputs = this.querySelectorAll('input, textarea');
+      let isValid = true;
+      
+      inputs.forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderColor = 'red';
+          isValid = false;
+        } else {
+          input.style.borderColor = '#ccc';
+        }
+      });
+      
+      if (isValid) {
+        alert('Pesan terkirim! Terima kasih telah menghubungi saya.');
+        this.reset();
+      } else {
+        alert('Harap isi semua field yang diperlukan!');
+      }
+    });
+  }
+</script>
+<!-- Tambahkan di <body> paling atas -->
+<div class="hamburger-menu" onclick="toggleSidebar()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<style>
+  .hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    cursor: pointer;
+    padding: 10px;
+  }
+  .bar {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.4s;
+  }
+  /* Animasi saat diklik */
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+</style>
+<!-- Tambahkan sebelum </body> -->
+<div id="profileSidebar" class="sidebar">
+  <div class="profile-header">
+    <img src="Royan.png" alt="Foto Profil" class="profile-pic">
+    <h3>Royan</h3>
+    <p>Photographer | Designer</p>
+  </div>
+  <ul class="menu">
+    <li><a href="#">📱 Profil Saya</a></li>
+    <li><a href="#">🎨 Portofolio</a></li>
+    <li><a href="#">⚙️ Pengaturan</a></li>
+    <li><a href="#">🚪 Keluar</a></li>
+  </ul>
+</div>
+
+<style>
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background: black;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    z-index: 999;
+    padding: 20px;
+  }
+  .sidebar.active {
+    right: 0;
+  }
+  .profile-header {
+    text-align: center;
+    margin-bottom: px;
+  }
+  .profile-pic {
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .menu li {
+    padding: 12px 0;
+    border-bottom: 1px solid #aaa;
+  }
+  .menu li a {
+    color: #333;
+    text-decoration: none;
+  }
+</style>
+
+<script>
+  function toggleSidebar() {
+    document.querySelector('.hamburger-menu').classList.toggle('active');
+    document.getElementById('profileSidebar').classList.toggle('active');
+  }
+</script>
+
+<style>
+  /* Tambahan CSS untuk tooltip */
+  .tooltip {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  /* Tambahan CSS untuk animasi */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .card {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .card:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  .card:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+</style>
+<!-- Tambahkan elemen audio (disembunyikan) -->
+<audio id="bgMusic" loop>
+  <source src="https://f.top4top.io/m_3394jymy60.mp3
+" type="audio/mpeg">
+  Browser Anda tidak mendukung elemen audio.
+</audio>
+
+<!-- Tambahkan tombol kontrol musik -->
+<div id="musicControl" style="position:fixed; bottom:20px; left:20px; z-index:100; background:white; padding:10px; border-radius:50%; cursor:pointer; box-shadow:0 2px 10px rgba(0,0,0,0.2);">
+  <img src="https://cdn-icons-png.flaticon.com/512/3669/3669483.png" width="30" alt="Music Control">
+</div>
+
+<script>
+  // Kontrol Musik
+  const bgMusic = document.getElementById('bgMusic');
+  const musicControl = document.getElementById('musicControl');
+  let isPlaying = false;
+
+  // Fungsi toggle musik
+  function toggleMusic() {
+    if (isPlaying) {
+      bgMusic.pause();
+      musicControl.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/3669/3669483.png" width="30" alt="Play Music">';
+    } else {
+      bgMusic.play();
+      musicControl.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/512/3669/3669483.png" width="30" alt="Pause Music">';
+    }
+    isPlaying = !isPlaying;
+  }
+
+  // Event listener untuk tombol
+  musicControl.addEventListener('click', toggleMusic);
+
+  // Mulai musik otomatis (dengan interaksi pengguna)
+  document.body.addEventListener('click', function initMusic() {
+    // Hanya dijalankan sekali
+    document.body.removeEventListener('click', initMusic);
+    
+    // Memulai musik (opsional)
+    // bgMusic.volume = 0.3; // Atur volume (0-1)
+    // toggleMusic();
+  });
+</script>
+</body>
+</html>
+
